@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+   <div class="row">
+      {% for tup in content %}
+      <div class="card" style="width:300px">
+         <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%">
+         <div class="card-body">
+             <h4 class="card-title">{{tup.1}}</h4>
+            {% for value in tup %}
+            <p class="card-text">{{ value }}</p>
+            {% endfor %}
+            <a href="/explore/?product_id={{tup.0}}" class="btn btn-primary">Explore</a>
+         </div>
+      </div>
+      {% endfor %}
+   </div>
+</div>
+{% endblock %}

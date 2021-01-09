@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load get_key_value %}
+{% load formatter %}
+
+{% block content %}
+
+<div class="container">
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Column</th>
+      <th scope="col"><center>Values</center></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for key, value in content.items %}
+    <tr>
+      <th scope="row">{{key | formatter }}</th>
+        <td><center>{{ value }}</center></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+  <br>
+  <center><a href="/add_to_cart/?prod_id={{ content | get_key_value }}" class="btn btn-success">Add to Cart</a></center>
+</div>
+
+{% endblock %}
